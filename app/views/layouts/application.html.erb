@@ -11,7 +11,9 @@
   <body>
     <navbar>
       <%= link_to "Home", root_path %> |
+      <%= link_to "Inventory", widgets_path %> |
       <% if session[:user_id] %>
+        <%= link_to "#{current_user.email.upcase_first}", user_path(current_user) %> |
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
@@ -22,16 +24,14 @@
     </navbar>
     <%= yield %>
     <footer>
-      <%= link_to "Back", root_path %>
+      <%= link_to "Back", root_path %> |
       <% if !session[:user_id] %>
-        <%= link_to "Log In", login_path %>
+        <%= link_to "Log In", login_path %> |
+      <% else %>
+        <%= link_to "Settings", edit_user_path(current_user) %> |
       <% end %>
+      <%= link_to "About", about_path %>
     <br></br>
-    <a target="_blank"
-      rel="noopener noreferrer"
-      href="https://github.com/jffernan/my-rails-store">
-      *Visit GitHub To View My Code*
-    </a>
     </footer>
   </body>
 </html>
