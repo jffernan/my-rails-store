@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user
+      redirect_to widgets_path
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
