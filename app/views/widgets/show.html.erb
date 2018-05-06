@@ -20,5 +20,12 @@
   <%= @widget.description %>
 </p>
 
-<%= link_to 'Edit', edit_widget_path(@widget) %> |
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@widget.picture) %>
+</p>
+
 <%= link_to 'Back', widgets_path %>
+<!--Load images on the page using the image_tag, this automatically looks up images in the \public\images folder in the web application.
+<%= image_tag(@product.url) %>
+-->

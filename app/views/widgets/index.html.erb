@@ -15,18 +15,21 @@
     <% @widgets.each do |widget| %>
       <tr>
         <td><%= widget.name %></td>
-        <td><%= widget.price %></td>
-        <td><%= widget.quantity %></td>
+        <td><%= image_tag(widget.picture, :size => '75x56') %></td>
         <td><%= widget.description %></td>
-        <td><%= link_to 'Show', widget %></td>
-        <td><%= link_to 'Edit', edit_widget_path(widget) %></td>
-        <td><%= link_to 'Destroy', widget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= widget.price %></td>
+        <td>
+          <%= label :quantity, "Quantity:" %> &ensp;
+          <%= number_field :quantity %>
+          <%= button_to 'Add to Cart' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Widget', new_widget_path %>
-<%= link_to "User Page", @user_path %> | 
+<!--Load images on the page using the image_tag, this automatically looks up images in the \public\images folder in the web application.
+<%= image_tag(@product.url) %>
+<%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+-->
