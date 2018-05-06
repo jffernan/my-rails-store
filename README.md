@@ -1,24 +1,13 @@
-# README
+# my-rails-store
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to My-Rails-Store app, a demo e-store where you can "fake" purchase widgets. Thank you for using my app.
 
-Things you may want to cover:
+Demo at: TBD.
 
-* Ruby version
+## Contributing
 
-* System dependencies
+Bug reports and pull requests are welcome on GitHub at https://github.com/jffernan/my-rails-store/. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Configuration
+## License
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The code is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
