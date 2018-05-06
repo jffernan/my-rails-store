@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyRailsStore</title>
+    <title>My Rails Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <navbar>
+      <%= link_to "Home", root_path %> |
+      <% if session[:user_id] %>
+        <%= link_to " | Logout", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign Up", signup_path %>
+      <% end %>
+      <% flash.each do |name, msg| -%>
+        <strong><%= content_tag :div, msg, class: name %></strong>
+      <% end %>
+    </navbar>
     <%= yield %>
+    <footer>
+      <%= link_to "Back", root_path %>
+      <% if !session[:user_id] %>
+        <%= link_to "Log In", login_path %>
+      <% end %>
+    <br></br>
+    <a target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/jffernan/my-rails-store">
+      *Visit GitHub To View My Code*
+    </a>
+    </footer>
   </body>
 </html>

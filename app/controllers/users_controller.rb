@@ -28,7 +28,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User #{@user.email} was successfully created.' } #redirect to widgets#index
+      session[:user_id] = @user.id
+        format.html { redirect_to root_path, notice: "User #{@user.email} was successfully created." } #redirect to widgets#index
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User #{@user.email} was successfully updated.' }
+        format.html { redirect_to @user, notice: "User #{@user.email} was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

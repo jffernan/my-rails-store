@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :widgets
   root 'users#home' #home
-
   resources :users
   get '/signup', to: "users#new"
   post '/signup', to: "users#create"
-  
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
