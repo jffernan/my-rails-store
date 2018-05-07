@@ -4,9 +4,10 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Picture</th>
+      <th>Description</th>
       <th>Price</th>
       <th>Quantity</th>
-      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,18 +19,9 @@
         <td><%= image_tag(widget.picture, :size => '75x56') %></td>
         <td><%= widget.description %></td>
         <td><%= widget.price %></td>
-        <td>
-          <%= label :quantity, "Quantity:" %> &ensp;
-          <%= number_field :quantity %>
-          <%= button_to 'Add to Cart' %>
-        </td>
+        <td><%= number_field_tag 'quantity' %><%= button_to 'Add to Cart' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-<!--Load images on the page using the image_tag, this automatically looks up images in the \public\images folder in the web application.
-<%= image_tag(@product.url) %>
-<%= button_to 'Add to Cart', line_items_path(product_id: product) %>
--->

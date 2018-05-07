@@ -10,7 +10,7 @@ Widget.create(
   description: "Ait arbor canis asperiores adipiscor aut.",
   price: 5,
   quantity: 0,
-  picture: "/app/assets/images/wblack.jpg"
+  picture: "wblack.jpg"
 )
 
 Widget.create(
@@ -18,7 +18,7 @@ Widget.create(
   description: "Avarus perferendis sit.",
   price: 10,
   quantity: 0,
-  picture: "/app/assets/images/wred.jpg"
+  picture: "wred.jpg"
 )
 
 Widget.create(
@@ -26,7 +26,7 @@ Widget.create(
   description: "Triumphus spiculum adfectus tribuo.",
   price: 10,
   quantity: 0,
-  picture: "/app/assets/images/wblue.jpg"
+  picture: "wblue.jpg"
 )
 
 Widget.create(
@@ -34,6 +34,6 @@ Widget.create(
   description: "Eaque patior verto facere aeternus apud.",
   price: 10,
   quantity: 0,
-  picture: "/app/assets/images/wgreen.jpg"
+  picture: "wgreen.jpg"
 )
 #image_tag automatically looks up images in the \public\images folder
