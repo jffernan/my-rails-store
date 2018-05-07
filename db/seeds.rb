@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Widget.create(
-  name: "wblack",
+  name: "Black Widget",
   description: "Ait arbor canis asperiores adipiscor aut.",
   price: 5,
   quantity: 0,
@@ -14,7 +14,7 @@ Widget.create(
 )
 
 Widget.create(
-  name: "wred",
+  name: "Red Widget",
   description: "Avarus perferendis sit.",
   price: 10,
   quantity: 0,
@@ -22,7 +22,7 @@ Widget.create(
 )
 
 Widget.create(
-  name: "wblue",
+  name: "Blue Widget",
   description: "Triumphus spiculum adfectus tribuo.",
   price: 10,
   quantity: 0,
@@ -30,10 +30,9 @@ Widget.create(
 )
 
 Widget.create(
-  name: "wgreen",
+  name: "Green Widget",
   description: "Eaque patior verto facere aeternus apud.",
   price: 10,
   quantity: 0,
   picture: "wgreen.jpg"
 )
-#image_tag automatically looks up images in the \public\images folder

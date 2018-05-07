@@ -16,10 +16,11 @@
     <% @widgets.each do |widget| %>
       <tr>
         <td><%= widget.name %></td>
-        <td><%= image_tag(widget.picture, :size => '75x56') %></td>
+        <td><%= image_tag(widget.picture, :size => '50x50') %></td>
         <td><%= widget.description %></td>
-        <td><%= widget.price %></td>
-        <td><%= number_field_tag 'quantity' %><%= button_to 'Add to Cart' %></td>
+        <td>$<%= widget.price %></td>
+        <td><%= number_field_tag(widget.quantity) %></td>
+        <td><%= button_to 'Add to Cart' %></td>
       </tr>
     <% end %>
   </tbody>
