@@ -13,7 +13,8 @@
       <%= link_to "Home", root_path %> |
       <%= link_to "Inventory", widgets_path %> |
       <% if session[:user_id] %>
-        <%= link_to "#{current_user.email.upcase_first}", user_path(current_user) %> |
+        <%= link_to "Account", user_path(current_user) %> |
+        <%= link_to "Cart", user_path(current_user) %> |
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
@@ -22,6 +23,7 @@
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end %>
     </navbar>
+    <h3>Welcome, #{current_user.email.upcase_first}!</h3>
     <p>Free shipping on orders over $50!  $10 discount off orders over $100!
     <%= yield %>
     <footer>
@@ -29,7 +31,7 @@
       <% if !session[:user_id] %>
         <%= link_to "Log In", login_path %> |
       <% else %>
-        <%= link_to "Account", edit_user_path(current_user) %> |
+        <%= link_to "Edit Account", edit_user_path(current_user) %> |
       <% end %>
       <%= link_to "About", about_path %>
     <br></br>
