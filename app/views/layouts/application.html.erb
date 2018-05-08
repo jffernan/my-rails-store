@@ -19,6 +19,7 @@
       <% else %>
         <%= link_to "Sign Up", signup_path %>
       <% end %>
+      <%= search_field_tag (:widget)'search', 'Enter your search query here' %>
       <% flash.each do |name, msg| -%>
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end %>
