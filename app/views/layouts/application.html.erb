@@ -24,7 +24,9 @@
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end %>
     </navbar>
-    <h3>Welcome, #{current_user.email.upcase_first}!</h3>
+    <% if session[:user_id] %>
+      <h3>Welcome, <%= current_user.email.upcase_first %>!
+    <% end %>
     <p>Free shipping on orders over $50!  $10 discount off orders over $100!
     <%= yield %>
     <footer>

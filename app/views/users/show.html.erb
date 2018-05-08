@@ -1,7 +1,11 @@
 <p>
 <h1>User Page</h1>
   <ul>
-    <li><strong>User Email: </strong><%= @user.email %></li>
+    <li><strong>Email: </strong><%= @user.email %></li>
+    <% if @user.address || @user.telephone %>
+      <li><strong>Address: </strong><%= @user.address %></li>
+      <li><strong>Telephone: </strong><%= @user.telephone %></li>
+    <% end %>
     <li><%= link_to "Change Email/Password", edit_user_path(current_user) %></li>
     <li><%= link_to "Edit Account Info", edit_user_path(current_user) %></li>
     <li><%= link_to "Edit Account Payment", edit_user_path(current_user) %></li>
