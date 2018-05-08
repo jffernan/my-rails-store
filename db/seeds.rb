@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# rails console: Show All Record => Modelname.all such as 'User.all'
+#user = User.create(name: "David", occupation: "Code Artist")
+
 Widget.create([
   {name: "Black Widget",
   description: "Ait arbor canis asperiores adipiscor aut.",
