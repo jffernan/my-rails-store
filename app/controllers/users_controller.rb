@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :account, :payment]
+
+  def account
+    @user.update(address: params[:address])
+    @user.update(telephone: params[:telephone])
+    @user.save
+    redirect_to @user
+  end
+
+  def payment
+    @user.update(payment: params[:payment])
+    @user.save
+    redirect_to @user
+  end
 
   def about
   end
@@ -75,6 +88,12 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(
+        :email,
+        :password,
+        :password_confirmation,
+        :address,
+        :telephone, 
+        :payment)
     end
 end
