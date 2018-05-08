@@ -5,34 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Widget.create(
-  name: "Black Widget",
+Widget.create([
+  {name: "Black Widget",
   description: "Ait arbor canis asperiores adipiscor aut.",
-  price: 5,
+  price: 5.00,
   quantity: 0,
-  picture: "wblack.jpg"
-)
-
-Widget.create(
-  name: "Red Widget",
+  picture: "wblack.jpg"},
+  {name: "Red Widget",
   description: "Avarus perferendis sit.",
-  price: 10,
+  price: 10.00,
   quantity: 0,
-  picture: "wred.jpg"
-)
-
-Widget.create(
-  name: "Blue Widget",
+  picture: "wred.jpg"},
+  {name: "Blue Widget",
   description: "Triumphus spiculum adfectus tribuo.",
-  price: 10,
+  price: 10.00,
   quantity: 0,
-  picture: "wblue.jpg"
-)
-
-Widget.create(
-  name: "Green Widget",
+  picture: "wblue.jpg"},
+  {name: "Green Widget",
   description: "Eaque patior verto facere aeternus apud.",
-  price: 10,
+  price: 10.00,
   quantity: 0,
-  picture: "wgreen.jpg"
+  picture: "wgreen.jpg"}
+  ]
 )
