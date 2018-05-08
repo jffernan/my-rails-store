@@ -1,31 +1,31 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Widget Page</h1>
+<% if !session[:user_id] %>
+  <p>Please
+    <%= link_to "Sign Up", signup_path %>
+    or
+    <%= link_to "Log In", login_path %>
+    to place order.
+<% end %>
 <p>
   <strong>Name:</strong>
   <%= @widget.name %>
 </p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @widget.price %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @widget.quantity %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @widget.description %>
-</p>
-
 <p>
   <strong>Picture:</strong>
   <%= image_tag(@widget.picture) %>
 </p>
-
-<%= link_to 'Back', widgets_path %>
-<!--Load images on the page using the image_tag, this automatically looks up images in the \public\images folder in the web application.
-<%= image_tag(@product.url) %>
--->
+<p>
+  <strong>Description:</strong>
+  <%= @widget.description %>
+</p>
+<p>
+  <strong>Price:</strong>
+  $<%= @widget.price %>
+</p>
+<% if session[:user_id] %>
+  <p>
+    <strong>Quantity:</strong>
+    <%= number_field_tag(@widget.quantity) %><%= button_to 'Add to Cart' %>
+  </p>
+<% end %>
