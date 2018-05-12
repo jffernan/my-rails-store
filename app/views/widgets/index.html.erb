@@ -1,10 +1,13 @@
 <h1>Widgets</h1>
 <% if !session[:user_id] %>
   <p>Please
-    <%= link_to "Sign Up", signup_path %>
-    or
-    <%= link_to "Log In", login_path %>
-    to place order.
+    <a href='/signup/' style="text-decoration: underline;">
+      Create Account</a>
+       or
+    <a href='/login/'style="text-decoration: underline;">
+      Log In</a>
+       to place orders.
+    </p>
 <% end %>
 <table>
   <thead>
@@ -13,9 +16,7 @@
       <th>Picture</th>
       <th>Description</th>
       <th>Price</th>
-      <% if session[:user_id] %>
-        <th>Quantity</th>
-      <% end %>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,13 +27,14 @@
         <td><%= link_to widget.name, widget_path(widget) %></td>
         <td><%= link_to image_tag(widget.picture, :size => '50x50'), widget_path(widget) %></td>
         <td><%= widget.description %></td>
-        <td>$<%= widget.price %></td>
-        <% if session[:user_id] %>
-          <td><%= number_field_tag(widget.quantity) %></td>
-          <td><%= button_to 'Add to Cart' %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+        <div class="price_line">
+          <td><span class="price"><%= number_to_currency(widget.price) %></span></td>
+          <% if session[:user_id] %>
+            <td><%= button_to 'Add to Cart', line_items_path(widget_id: widget) %></td>
+          <% end %>
+        </div>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>

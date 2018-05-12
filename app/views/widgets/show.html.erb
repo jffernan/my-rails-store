@@ -2,10 +2,13 @@
 <h1>Widget Page</h1>
 <% if !session[:user_id] %>
   <p>Please
-    <%= link_to "Sign Up", signup_path %>
-    or
-    <%= link_to "Log In", login_path %>
-    to place order.
+    <a href='/signup/' style="text-decoration: underline;">
+      Create Account</a>
+       or
+    <a href='/login/'style="text-decoration: underline;">
+      Log In</a>
+       to place orders.
+  </p>
 <% end %>
 <p>
   <strong>Name:</strong>
@@ -19,13 +22,14 @@
   <strong>Description:</strong>
   <%= @widget.description %>
 </p>
-<p>
-  <strong>Price:</strong>
-  $<%= @widget.price %>
-</p>
-<% if session[:user_id] %>
+<div class="price_line">
   <p>
-    <strong>Quantity:</strong>
-    <%= number_field_tag(@widget.quantity) %><%= button_to 'Add to Cart' %>
+    <span class="price">
+      <strong>Price:</strong>
+      <%= number_to_currency(@widget.price) %>
+    </span>
   </p>
-<% end %>
+  <p>
+    <%= button_to 'Add to Cart', line_items_path(widget_id: widget) %>
+  </p>
+</div>
