@@ -29,7 +29,9 @@
       <%= number_to_currency(@widget.price) %>
     </span>
   </p>
-  <p>
-    <%= button_to 'Add to Cart', line_items_path(widget_id: widget) %>
-  </p>
+  <% if session[:user_id] %>
+    <p>
+      <%= button_to 'Add to Cart', line_items_path(widget_id: widget) %>
+    </p>
+  <% end %>
 </div>
