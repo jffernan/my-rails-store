@@ -19,15 +19,14 @@
       <% else %>
         <%= link_to "Sign Up", signup_path %>
       <% end %>
-      <%= search_field_tag (:widget)'search', 'Enter your search query here' %>
       <% flash.each do |name, msg| -%>
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end %>
     </navbar>
     <% if session[:user_id] %>
-      <h3>Welcome, <%= current_user.email.upcase_first %>!
+      <h3>Hi, <%= current_user.email.upcase_first %>!
     <% end %>
-    
+
     <%= yield %>
     <footer>
       <%= link_to "Back", root_path %> |

@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  get '/account' => 'users#account'
-  get '/payment' => 'users#payment'
+  get '/users/:id/account', to: 'users#account', as: :account
+  patch '/users/:id/account' => 'users#account_update'
+  get '/users/:id/payment', to: 'users#payment', as: :payment
+  patch '/users/:id/payment' => 'users#payment_update'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

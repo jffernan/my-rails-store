@@ -1,17 +1,45 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :account, :payment]
+  before_action :set_user, only: [
+    :show,
+    :edit,
+    :update,
+    :destroy,
+    :account,
+    :payment,
+    :account_update,
+    :payment_update
+  ]
+
+  def account_update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: "User #{@user.email} was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :account }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def payment_update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: "User #{@user.email} was successfully updated." }
+        format.json { render :payment, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def account
-    @user.update(address: params[:address])
-    @user.update(telephone: params[:telephone])
-    @user.save
-    redirect_to @user
+
   end
 
   def payment
-    @user.update(payment: params[:payment])
-    @user.save
-    redirect_to @user
+    
   end
 
   def about
@@ -93,7 +121,7 @@ class UsersController < ApplicationController
         :password,
         :password_confirmation,
         :address,
-        :telephone, 
+        :telephone,
         :payment)
     end
 end

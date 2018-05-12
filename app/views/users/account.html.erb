@@ -1,11 +1,11 @@
 <h1>Account Info</h1>
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,13 +13,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :address, "Please Enter Your Shipping Address:"&ensp; %>
+    <%= form.label :address, "Enter Shipping Address:" %>
+    </br>
     <%= form.text_area :address %>
   </div>
 
   <div class="field">
-    <%= form.label :address, "Please Enter Your Telephone Number:"&ensp; %>
-    <% telephone_field_tag(:telephone) 'telephone' %>
+    <%= form.label :telephone, "Enter Telephone Number:" %>&ensp;
+    <%= form.telephone_field :telephone, maxlength: "10" %>
   </div>
 
   <div class="actions">
