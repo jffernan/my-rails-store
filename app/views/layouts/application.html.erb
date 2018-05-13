@@ -27,9 +27,7 @@
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end %>
     </navbar>
-    <% if session[:user_id] %>
-      <h3>Hi, <%= current_user.email.upcase_first %>!
-    <% end %>
+
     <%= yield %>
     <footer>
       <%= link_to "Back", root_path %> |

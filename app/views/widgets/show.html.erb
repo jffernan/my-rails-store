@@ -31,7 +31,7 @@
   </p>
   <% if session[:user_id] %>
     <p>
-      <%= button_to 'Add to Cart', line_items_path(widget_id: widget) %>
+      <%= button_to 'Add to Cart', widgets_path %>
     </p>
   <% end %>
 </div>

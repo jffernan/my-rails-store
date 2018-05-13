@@ -32,7 +32,7 @@
         <div class="price_line">
           <td><span class="price"><%= number_to_currency(widget.price) %></span></td>
           <% if session[:user_id] %>
-            <td><%= button_to 'Add to Cart', line_items_path(widget_id: widget) %></td>
+            <td><%= button_to 'Add to Cart', widgets_path %></td>
           <% end %>
         </div>
         </tr>
