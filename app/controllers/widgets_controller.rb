@@ -4,7 +4,11 @@ class WidgetsController < ApplicationController
   # GET /widgets
   # GET /widgets.json
   def index
-    @widgets = Widget.all
+    if params[:search]
+      @widgets = Widget.search(params[:search]).alphabetical_order
+    else
+      @widgets = Widget.all.alphabetical_order 
+    end
   end
 
   # GET /widgets/1
