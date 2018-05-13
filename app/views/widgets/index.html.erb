@@ -40,9 +40,8 @@
               <%= form_for @order_item do |f| %>
                 <%= f.hidden_field :widget_id, value: widget.id %>
                 <span class="quantity-input">
-                  <%= f.number_field :quantity, value: 1, min: 1 %>
+                  <%= f.number_field :quantity, value: 1, min: 1 %><%= f.submit "Add to cart" %>
                 </span>
-                <%= f.submit "Add to cart" %>
               <% end %>
             </td>
           <% end %>
