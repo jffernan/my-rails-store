@@ -11,6 +11,7 @@ class WidgetsController < ApplicationController
   # GET /widgets/1
   # GET /widgets/1.json
   def show
+    @order_item = current_order.order_items.new
   end
 
   private

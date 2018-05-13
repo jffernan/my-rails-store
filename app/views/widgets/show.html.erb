@@ -31,7 +31,18 @@
   </p>
   <% if session[:user_id] %>
     <p>
-      <%= button_to 'Add to Cart', widgets_path %>
+      <%= form_for @order_item do |f| %>
+        <%= f.hidden_field :widget_id, value: @widget.id %>
+        <span class="quantity-input">
+          <%= f.number_field :quantity, value: 1, min: 1 %>
+        </span>
+        <%= f.submit "Add to cart" %>
+      <% end %>
     </p>
   <% end %>
 </div>
+<% if @widget.id>1 %>
+  <a href='/widgets/<%=(@widget.id.to_i)-1%>'style="text-decoration: underline;">Prev Widget</a>
+<% end %>
+  <a href='/widgets/<%=(@widget.id.to_i)+1%>'style="text-decoration: underline;">Next Widget</a>
+<br></br>
