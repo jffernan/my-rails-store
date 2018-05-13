@@ -14,7 +14,7 @@
       <%= link_to "Inventory", widgets_path %> |
       <% if session[:user_id] %>
         <%= link_to "Account", user_path(session[:user_id]) %> |
-        <%= link_to 'Cart', cart_path %> |
+        <%= link_to 'View Cart', cart_path %> |
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
