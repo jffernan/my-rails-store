@@ -10,7 +10,7 @@
 
 Widget.create([
   {name: "Black Widget",
-  description: "Ait arbor canis asperiores adipiscor aut.",
+  description: "Ait arbor canis asperiores.",
   price: 5.00,
   quantity: 0,
   picture: "wblack.jpg"},
@@ -25,7 +25,7 @@ Widget.create([
   quantity: 0,
   picture: "wblue.jpg"},
   {name: "Green Widget",
-  description: "Eaque patior verto facere aeternus apud.",
+  description: "Eaque patior verto facere.",
   price: 10.00,
   quantity: 0,
   picture: "wgreen.jpg"}

@@ -5,6 +5,7 @@ class WidgetsController < ApplicationController
   # GET /widgets.json
   def index
     @widgets = Widget.search(params[:name]).alphabetical_order
+    @order_item = current_order.order_items.new
   end
 
   # GET /widgets/1

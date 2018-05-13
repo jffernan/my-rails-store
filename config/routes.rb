@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :carts
-  resources :widgets
+
   root 'users#home' #home
   get '/about' => 'users#about'
   resources :users
@@ -15,6 +14,11 @@ Rails.application.routes.draw do
   patch '/users/:id/account' => 'users#account_update'
   get '/users/:id/payment', to: 'users#payment', as: :payment
   patch '/users/:id/payment' => 'users#payment_update'
-  
+
+  resource :cart, only: [:show]
+  resources :widgets
+  resources :order_items
+  resources :orders
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -12,10 +12,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Picture</th>
-      <th>Description</th>
-      <th>Price</th>
+      <th>Name&ensp;&ensp;&ensp;</th>
+      <th>Picture&ensp;&ensp;</th>
+      <th>Description&ensp;&ensp;&ensp;&ensp;&ensp;</th>
+      <th>Price&ensp;&ensp;&ensp;</th>
       <% if session[:user_id] %>
         <th>Quantity</th>
       <% end %>
@@ -32,11 +32,18 @@
         <div class="price_line">
           <td><span class="price"><%= number_to_currency(widget.price) %></span></td>
           <% if session[:user_id] %>
-            <td><%= button_to 'Add to Cart', widgets_path %></td>
+            <td>
+              <%= form_for @order_item do |f| %>
+                <%= f.hidden_field :widget_id, value: widget.id %>
+                <span class="quantity-input">
+                  <%= f.number_field :quantity %>
+                </span>
+                <%= f.submit "Add to cart" %>
+              <% end %>
+            </td>
           <% end %>
         </div>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <br/>

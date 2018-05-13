@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  #before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /carts
   # GET /carts.json
@@ -10,6 +10,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @order_items = current_order.order_items
   end
 
   # GET /carts/new
@@ -60,7 +61,8 @@ class CartsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+end
+=begin
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
@@ -72,3 +74,5 @@ class CartsController < ApplicationController
       params.fetch(:cart, {})
     end
 end
+=end
+#before_action :set_cart, only: [:show, :edit, :update, :destroy]

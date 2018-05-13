@@ -1,4 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<h1>Your Cart</h1>
+<% if @order_items.any? %>
+  <% @order_items.each do |item| %>
+    <p><%= item.widget.name %> |
+      <%= link_to "Delete",
+      order_item_path(item),
+      :data => {:confirm => "Are you sure?",
+      :method => "delete"} %>
+    </p>
+    <p> Unit Price: <%= number_to_currency item.widget.price %> |
+      Quantity: <%= item.quantity %> |
+      Total Price: <%= number_to_currency (item.widget.price * item.quantity) %>
+    </p>
+  <% end %>
+  <p>
+    <span class="total">
+      Your Total:
+      <%= number_to_currency current_order.total_price %>
+    </span>
+  </p>
+<% else %>
+  <p>Your shopping cart is empty.</p>
+<% end %>
+<a href='/widgets/'style="text-decoration: underline;">
+  Continue Shopping
+</a> | Checkout
+<br></br>

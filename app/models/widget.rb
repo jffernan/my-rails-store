@@ -1,4 +1,6 @@
 class Widget < ApplicationRecord
+  has_many :order_items
+
   def self.search(name)
     if name
       name=name.upcase_first
