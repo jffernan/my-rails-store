@@ -13,14 +13,14 @@
       <%= link_to "Home", root_path %> |
       <%= link_to "Inventory", widgets_path %> |
       <% if session[:user_id] %>
-        <%= link_to "Account", user_path(current_user) %> |
-        <%= link_to "Cart", user_path(current_user) %> |
+        <%= link_to "Account", user_path(session[:user_id]) %> |
+        <%= link_to 'Cart', user_path(session[:user_id]) %> |
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Sign Up", signup_path %>
       <% end %>
       <%= form_tag(widgets_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Find Widgets!" %>
+          <%= text_field_tag :name, params[:name], placeholder: "Find Widgets By Color!" %>
           <%= submit_tag "Search", :name => nil %>
       <% end %>
       <% flash.each do |name, msg| -%>
@@ -30,14 +30,13 @@
     <% if session[:user_id] %>
       <h3>Hi, <%= current_user.email.upcase_first %>!
     <% end %>
-
     <%= yield %>
     <footer>
       <%= link_to "Back", root_path %> |
-      <% if !session[:user_id] %>
-        <%= link_to "Log In", login_path %> |
+      <% if session[:user_id] %>
+        <%= link_to "Edit Account", edit_user_path(session[:user_id]) %> |
       <% else %>
-        <%= link_to "Edit Account", edit_user_path(current_user) %> |
+        <%= link_to "Log In", login_path %> |
       <% end %>
       <%= link_to "About", about_path %>
     <br></br>
