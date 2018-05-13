@@ -20,7 +20,7 @@ Widget.create([
   quantity: 0,
   picture: "wred.jpg"},
   {name: "Blue Widget",
-  description: "Triumphus spiculum adfectus tribuo.",
+  description: "Triumphus spiculum adfectus tribuo.     ",
   price: 10.00,
   quantity: 0,
   picture: "wblue.jpg"},

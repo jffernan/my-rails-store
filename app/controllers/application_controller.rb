@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    else
+    if session[:order_id]<2
       Order.new
+    elsif session[:order_id]
+      Order.find(session[:order_id])
     end
   end
 
