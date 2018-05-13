@@ -9,13 +9,13 @@
        to place orders.
     </p>
 <% end %>
-<table>
+<table id="products">
   <thead>
     <tr>
-      <th>Name&ensp;&ensp;&ensp;&ensp;</th>
-      <th>Picture&ensp;&ensp;&ensp;</th>
-      <th>Description&ensp;&ensp;&ensp;&ensp;</th>
-      <th>Price&ensp;&ensp;&ensp;</th>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Description</th>
+      <th>Price</th>
       <% if session[:user_id] %>
         <th>Quantity</th>
       <% end %>
@@ -27,7 +27,11 @@
     <% @widgets.each do |widget| %>
       <tr>
         <td><%= link_to widget.name, widget_path(widget)%></td>
-        <td><%= link_to image_tag(widget.picture, :size => '50x50'), widget_path(widget) %></td>
+        <td>
+          <span class="borderbox">
+            <%= link_to image_tag(widget.picture, :size => '50x50'), widget_path(widget) %>
+          </span>
+        </td>
         <td><%= widget.description %></td>
         <div class="price_line">
           <td><span class="price"><%= number_to_currency(widget.price) %></span></td>
