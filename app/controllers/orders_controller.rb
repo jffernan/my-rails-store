@@ -16,8 +16,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new(user_id: params[:user_id],
-      order_items_id: params[:order_items_id])
+    @order = Order.new(user_id: params[:user_id])
+    @order_items = @order.order_items
   end
 
   # GET /orders/1/edit
@@ -29,15 +29,16 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     #@order.add_order_items_from_cart(@cart)
-
+    @order_items = @order.order_items
     respond_to do |format|
       if @order.save
         #Cart.destroy(session[:cart_id])
         #session[:cart_id] = nil
-        #@order.order_items.each do |item|
-          #@item = @order.order_items.find(params[:id])
-          #@item.destroy
-        #end
+        @order_items.each do |item|
+          @item = item.order_items.find(params[:id])
+          @item.destroy
+        end
+        @order_items.clear
         format.html { redirect_to cart_path, notice:
           'Thank you for your order. Your account has been charged.  Your order will arrive today.' }
         format.json { render :show, status: :created,
