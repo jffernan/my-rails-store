@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <navbar>
+    <nav>
       <%= link_to "Home", root_path %> |
       <%= link_to "Inventory", widgets_path %> |
       <% if session[:user_id] %>
@@ -20,13 +20,13 @@
         <%= link_to "Sign Up", signup_path %>
       <% end %>
       <%= form_tag(widgets_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :name, params[:name], placeholder: "Find Widgets By Color!" %>
+          <%= search_field_tag :name, params[:name], placeholder: "Find Widgets By Color!" %>
           <%= submit_tag "Search", :name => nil %>
       <% end %>
       <% flash.each do |name, msg| -%>
         <strong><%= content_tag :div, msg, class: name %></strong>
       <% end %>
-    </navbar>
+    </nav>
 
     <%= yield %>
     <footer>
