@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 2.7', '>= 2.7.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'duktape'
 # Use CoffeeScript for .coffee assets and views
@@ -41,6 +41,8 @@ gem 'jquery-rails'
 gem 'faker'
 #bs for styling
 gem "bootstrap-sass"
+
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
