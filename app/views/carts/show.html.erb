@@ -31,7 +31,10 @@
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
-<a href='/widgets/'style="text-decoration: underline;">
+<a href='/widgets/'>
   Continue Shopping
-</a> | Checkout
+</a>
+<% if @order_items.any? %> | 
+  <%= link_to "Checkout", new_order_path, method: :get %>
+<% end %>
 <br></br>

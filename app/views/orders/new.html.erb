@@ -1,0 +1,14 @@
+<h1>Checkout Page</h1>
+<div class="order_form">
+  <p>
+    <strong>
+      Please Enter Shipping Address & Payment Info Below:
+    </strong>
+  </p>
+  <%= render 'form', order: @order %>
+</div>
+<%= link_to 'Back to Cart', cart_path %> |
+<a href='/widgets/'>
+  Continue Shopping
+</a>
+<br></br>
