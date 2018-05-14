@@ -1,4 +1,5 @@
 Rails.application.configure do
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
