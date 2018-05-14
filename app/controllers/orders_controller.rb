@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
         @order.total_charge=@order.total_price
 
         format.html { redirect_to @order, notice:
-          "Thank you for your order!  You will receive it today"}
+          "Thank you for your order.  You will receive it today."}
         format.json { render :show, status: :created,
           location: @order }
         session[:order_id] = nil

@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   enum pay_type: {
     "Check"          => 0,
     "Credit card"    => 1,
-    "Purchase order" => 2
+    "PayPal" => 2
   }
 
   has_many :order_items
