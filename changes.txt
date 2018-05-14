@@ -1,0 +1,5 @@
+<li><%= link_to "Edit Account Info", account_path(@user) %></li>
+<li><%= link_to "Edit Account Payment", payment_path(@user) %></li>
+<% if @user.orders.count>0 %>
+<li><%= link_to "View Past Orders", orders_path %></li>
+<% end %>
