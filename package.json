@@ -1,5 +1,9 @@
 {
   "name": "my-rails-store",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.8.3",
+    "webpack-dev-server": "^3.1.4"
+  }
 }
