@@ -1,5 +1,5 @@
 Rails.application.configure do
-  RAILS_ENV=production rake db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+  
   #DISABLE_DATABASE_ENVIRONMENT_CHECK=1
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
