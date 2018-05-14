@@ -1,7 +1,6 @@
 <h1>Order History</h1>
 <% @orders.each do |order| %>
  <p><%= order.created_at %> |
-   <%= number_to_currency order.total_charge %> |
    <%= link_to "Order Id #{order.id}", order %>
  </p>
 <% end %>

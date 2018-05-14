@@ -25,13 +25,7 @@
   <%= @order.pay_type %>
 </p>
 
-<p>
-  <strong>Total Charge:</strong>
-  <%= number_to_currency @order.total_charge %>
-</p>
-
 <a href='/widgets/'>
   Back to Shopping
-</a> |
-<%= link_to "View Past Orders", orders_path %>
+</a>
 <br></br>

@@ -35,11 +35,12 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         @order.total_charge=@order.total_price
-        session[:order_id] = nil
+
         format.html { redirect_to @order, notice:
-          'Thank you for your order. Your account has been charged.  Your order will arrive today.' }
+          "Thank you for your order!  You will receive it today"}
         format.json { render :show, status: :created,
           location: @order }
+        session[:order_id] = nil
       else
         format.html { render :new }
         format.json { render json: @order.errors,
