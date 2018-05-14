@@ -6,17 +6,18 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders=Order.all
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order_items = @order.order_items
   end
 
   # GET /orders/new
   def new
-    @order = Order.new(user_id: params[:user_id])
+    @order = Order.new
     @order_items = @order.order_items
   end
 
@@ -29,11 +30,12 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     #@order.add_order_items_from_cart(@cart)
+
     @order_items = @order.order_items
     respond_to do |format|
       if @order.save
         session[:order_id] = nil
-        format.html { redirect_to orders_path, notice:
+        format.html { redirect_to @order, notice:
           'Thank you for your order. Your account has been charged.  Your order will arrive today.' }
         format.json { render :show, status: :created,
           location: @order }

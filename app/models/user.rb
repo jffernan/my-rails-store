@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :orders
+
 
   before_save { self.email = email.downcase } #AR callback
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -12,7 +12,8 @@ class User < ApplicationRecord
   #validates :telephone, length: { maximum: 10 }
   validates :address, length: { maximum: 100 }
   validates :payment, length: { maximum: 16 }
-
+  
+  has_many :orders
 end
 
 #presence: true,

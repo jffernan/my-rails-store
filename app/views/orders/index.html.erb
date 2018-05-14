@@ -1,15 +1,10 @@
-<h1>Order Page</h1>
-<% @user.orders.each do |order| %>
+<h1>Order History</h1>
+<% @orders.each do |order| %>
  <p><%= order.created_at %> |
    <%= number_to_currency order.total_price %> |
-   <%= order.id %></p>
+   <%= link_to "Order Id #{order.id}", order %>
+ </p>
 <% end %>
-<p>
-<% @user.order_items.each do |order_item| %>
-  <%= order_item.widget.name %>
-  <%= order_item.widget.quantity %>
-<% end %>
-</p>
 <a href='/widgets/'>
   Back to Shopping
 </a>

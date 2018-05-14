@@ -37,7 +37,7 @@
           <td><span class="price"><%= number_to_currency(widget.price) %></span></td>
           <% if session[:user_id] %>
             <td>
-              <%= form_for @order_item do |f| %>
+              <%= form_for(OrderItem.new) do |f| %>
                 <%= f.hidden_field :widget_id, value: widget.id %>
                 <span class="quantity-input">
                   <%= f.number_field :quantity, value: 1, min: 1 %><%= f.submit "Add to cart" %>

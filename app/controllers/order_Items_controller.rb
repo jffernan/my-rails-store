@@ -1,4 +1,8 @@
 class OrderItemsController < ApplicationController
+  def new
+    @order_item = Order_item.new
+  end
+
   def create
     @order = current_order
     @item = @order.order_items.new(item_params)
@@ -25,7 +29,7 @@ class OrderItemsController < ApplicationController
 
   private
 
-  def items_params
+  def item_params
     params.require(:order_item).permit(:quantity, :widget_id, :order_id)
   end
 
