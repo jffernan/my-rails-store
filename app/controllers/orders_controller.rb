@@ -34,10 +34,10 @@ class OrdersController < ApplicationController
       if @order.save
         #Cart.destroy(session[:cart_id])
         #session[:cart_id] = nil
-        @order.order_items.each do |item|
-          @item = @order.order_items.find(params[:id])
-          @item.destroy
-        end
+        #@order.order_items.each do |item|
+          #@item = @order.order_items.find(params[:id])
+          #@item.destroy
+        #end
         format.html { redirect_to cart_path, notice:
           'Thank you for your order. Your account has been charged.  Your order will arrive today.' }
         format.json { render :show, status: :created,
