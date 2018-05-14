@@ -5,6 +5,14 @@ class WidgetsController < ApplicationController
   # GET /widgets.json
   def index
     @widgets = Widget.search(params[:name]).alphabetical_order
+    respond_to do |format|
+      if @widgets.count==0
+        format.html { redirect_to widgets_path,
+          notice: "Sorry no product match! View full inventory below." }
+      else
+        format.html { render :index }
+      end
+    end
     @order_item = current_order.order_items.new
   end
 

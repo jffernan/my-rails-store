@@ -25,7 +25,7 @@ class OrderItemsController < ApplicationController
 
   private
 
-  def order_items_params
+  def items_params
     params.require(:order_item).permit(:quantity, :widget_id, :order_id)
   end
 
