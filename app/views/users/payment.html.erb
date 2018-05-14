@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= form.label :payment, "Enter FAKE account/card number (no spaces/symbols):" %>&ensp;
-    <%= form.number_field :payment %>
+    <%= form.number_field :payment, max: 16 %>
   </div>
 
   <div class="actions">
