@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
     @order_items = @order.order_items
     respond_to do |format|
       if @order.save
+        @order.total_charge=@order.total_price
         session[:order_id] = nil
         format.html { redirect_to @order, notice:
           'Thank you for your order. Your account has been charged.  Your order will arrive today.' }
