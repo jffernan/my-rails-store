@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_14_213549) do
+ActiveRecord::Schema.define(version: 2018_05_15_213306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_05_14_213549) do
     t.string "phone"
     t.integer "pay_type"
     t.decimal "total_charge"
+    t.bigint "account_number"
   end
 
   create_table "users", force: :cascade do |t|

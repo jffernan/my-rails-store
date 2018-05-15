@@ -20,7 +20,6 @@
   <div class="field">
     <%= form.label :shipping_address, "Address" %>
     <%= form.text_area :shipping_address,
-
     id: :order_shipping_address,
     rows: 3,
     cols: 40 %>
@@ -29,7 +28,6 @@
   <div class="field">
     <%= form.label :phone, "Telephone" %>&ensp;
     <%= form.telephone_field :phone,
-
     maxlength: "10" %>
   </div>
 
@@ -43,6 +41,11 @@
     <%= form.select :pay_type, Order.pay_types.keys, id: :order_pay_type,
                   prompt: 'Select a payment method' %>
 
+  </div>
+
+  <div class="field">
+    <%= form.label :account_number, "Enter FAKE account/card number (no spaces/symbols):" %>&ensp;
+    <%= form.number_field :account_number, size: 16 %>
   </div>
 
   <div class="actions">

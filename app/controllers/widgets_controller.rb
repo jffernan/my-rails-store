@@ -4,7 +4,7 @@ class WidgetsController < ApplicationController
   # GET /widgets
   # GET /widgets.json
   def index
-    @widgets = Widget.search(params[:name]).alphabetical_order
+    @widgets = Widget.search(params[:name])
     respond_to do |format|
       if @widgets.count==0
         format.html { redirect_to widgets_path,
