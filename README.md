@@ -1,8 +1,10 @@
 # my-rails-store
 
-Welcome to My-Rails-Store app, a demo e-store where you can "fake" purchase widgets. Thank you for using my app.
+Welcome to My Rails Widget Store website, a demo e-store where you can "fake" purchase widgets. 
 
-Demo at: TBD.
+Demo at: https://my-rails-store.herokuapp.com/.  Thank you for trying my app.
+
+This app was built using Ruby on Rails, a Ruby web framework, and followed MVC architecture and RESTful routing patterns. I also developed user authentication to allow for user signup and login processes. These is a nav search bar to find widgets along with inventory and show pages for widgets. There is also a working shopping cart available to CRUD orders of widgets and checkout process to complete fake purchases of widgets.
 
 ## Contributing
 
