@@ -41,8 +41,10 @@
     </p>
   <% end %>
 </div>
-<% if @widget.id>1 %>
+<% if @widget.id > 1 %>
   <a href='/widgets/<%=(@widget.id.to_i)-1%>'style="text-decoration: underline;">Prev Widget</a>
 <% end %>
+<% if @widget.id < 4 %>
   <a href='/widgets/<%=(@widget.id.to_i)+1%>'style="text-decoration: underline;">Next Widget</a>
+<% end %>
 <br></br>
